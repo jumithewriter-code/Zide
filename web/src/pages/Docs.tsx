@@ -2,7 +2,8 @@ import CodeBlock from '../components/CodeBlock'
 
 // Developer docs: everything a merchant needs to integrate, on one page.
 
-const API = 'http://127.0.0.1:8080'
+// The site proxies /v1 and /zide.js to the gateway (Vite locally, vercel.json when deployed).
+const API = window.location.origin
 
 const SIGN_UP = `curl -X POST ${API}/v1/merchants \\
   -H 'content-type: application/json' \\

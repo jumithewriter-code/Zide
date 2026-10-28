@@ -95,7 +95,9 @@ async fn main() -> Result<()> {
     let state = AppState { db: Arc::new(Mutex::new(conn)), config: Arc::new(config), inspector };
     tokio::spawn(matcher::run(state.clone(), source, scan_from));
 
-    let addr: SocketAddr = env_parse("ZIDE_HTTP_ADDR", "127.0.0.1:8080")?;
+    // Hosts like Railway provide PORT and need the server reachable from outside the container.
+    let default_addr = std::env::var("PORT").map_or("127.0.0.1:8080".to_string(), |p| format!("0.0.0.0:{p}"));
+    let addr: SocketAddr = env_parse("ZIDE_HTTP_ADDR", &default_addr)?;
     let listener = tokio::net::TcpListener::bind(addr).await?;
     eprintln!("gateway API listening on http://{addr}");
     axum::serve(listener, api::router(state)).await?;
@@ -114,6 +116,10 @@ fn save_lp_keys(path: &str, keys: &[(String, String)]) -> Result<()> {
     std::fs::write(path, serde_json::to_string_pretty(&all)?).with_context(|| format!("writing {path}"))?;
     let handles: Vec<&str> = keys.iter().map(|(h, _)| h.as_str()).collect();
     eprintln!("issued LP keys for {} -> {path}", handles.join(", "));
+    // Testnet demo only: also print them, since a hosted container's files are hard to reach.
+    for (handle, key) in keys {
+        eprintln!("LP key for {handle}: {key}");
+    }
     Ok(())
 }
 

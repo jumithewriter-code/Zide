@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/v1/:path*", "destination": "https://YOUR-GATEWAY.up.railway.app/v1/:path*" },
+    { "source": "/zide.js", "destination": "https://YOUR-GATEWAY.up.railway.app/zide.js" }
+  ]
+}

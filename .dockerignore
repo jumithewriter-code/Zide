@@ -1,0 +1,8 @@
+target
+web
+examples
+tools
+.env
+*.sqlite*
+lp-keys.json
+**/.zide-keys.json

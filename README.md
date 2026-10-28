@@ -111,3 +111,18 @@ linker fails with LNK1104.
 - [x] `zide.js`, `@zide/node`, developer docs, merchant dashboard
 - [x] PrivateVPN example: verified end to end on testnet (payment → webhook → account unlocked)
 - [x] Payment proof page (public testnet explorers are on the pre-NU7 fork)
+
+## Deploy (Railway + Vercel)
+
+**Gateway on Railway:** new project from this repo (it builds the root `Dockerfile`), add a
+volume mounted at `/data`, and set:
+
+| Variable | Value |
+|---|---|
+| `ZIDE_UFVK` | the viewing key from your local `.env` (never upload `ZIDE_SEED`) |
+| `ZIDE_PUBLIC_URL` | your Vercel site, e.g. `https://zide.vercel.app` |
+
+Railway's `PORT` is picked up automatically. On first start the logs show the demo LP keys.
+
+**Website on Vercel:** new project from this repo with root directory `web`. Replace
+`YOUR-GATEWAY.up.railway.app` in `web/vercel.json` with your Railway domain, then redeploy.
