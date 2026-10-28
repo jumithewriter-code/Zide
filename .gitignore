@@ -11,3 +11,4 @@ lp-keys.json
 .claude/
 node_modules/
 *.log
+examples/**/orders.json

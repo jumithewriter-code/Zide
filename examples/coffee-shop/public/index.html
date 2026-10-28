@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ember Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="/"><span class="brand-mark">E</span>Ember Coffee</a>
+      <span class="hours">Open daily · 7am – 6pm</span>
+    </header>
+
+    <section class="hero">
+      <h1>Small-batch coffee, roasted with care.</h1>
+      <p>Order ahead and skip the line. Pick your drinks, check out, and we'll have them ready.</p>
+    </section>
+
+    <main class="layout">
+      <div id="menu" aria-live="polite">Loading menu…</div>
+
+      <aside class="cart" aria-label="Your order">
+        <h2>Your order</h2>
+        <p class="muted" id="cart-empty">Nothing here yet. Add something from the menu.</p>
+        <ul class="cart-lines" id="cart-lines"></ul>
+        <div class="total"><span>Total</span><span id="cart-total">$0.00</span></div>
+        <p class="error" id="cart-error" hidden></p>
+        <button class="btn btn-accent btn-wide" id="checkout" disabled>Checkout</button>
+      </aside>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

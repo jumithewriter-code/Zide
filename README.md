@@ -47,6 +47,7 @@ Customer is redirected back to the merchant's success_url
 | `sdk/node` | `@zide/node`: `checkout.sessions.create`, `plans`, `subscriptions`, `verifyWebhook` |
 | `sdk/js/zide.js` | Drop-in "Pay privately" button (served by the gateway at `/zide.js`) |
 | `examples/privatevpn` | A complete example merchant: anonymous accounts, subscriptions, webhook fulfilment |
+| `examples/coffee-shop` | Ember Coffee: a shop taking one-off payments (menu, cart, order page, webhook) |
 | `web` | Landing page, developer docs, merchant dashboard, hosted payment page, LP dashboard, payment proof |
 | `tools/show-db.mjs` | Prints everything Zide stores (to show there's no personal data) |
 
