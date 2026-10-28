@@ -1,6 +1,6 @@
 # Zide gateway on Fly.io. Change `app` to a unique name before `fly launch`.
-app = "zide-gateway"
-primary_region = "iad"
+app = "zide"
+primary_region = "ams"
 
 [build]
   dockerfile = "Dockerfile"
