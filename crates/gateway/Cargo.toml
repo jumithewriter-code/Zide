@@ -1,0 +1,26 @@
+[package]
+name = "gateway"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+description = "Zide gateway: invoices, license keys and payment matching"
+
+[dependencies]
+scanner = { path = "../scanner" }
+zcash_keys.workspace = true
+zcash_protocol.workspace = true
+
+anyhow.workspace = true
+axum = "0.8"
+base64 = "0.23"
+dotenvy.workspace = true
+getrandom.workspace = true
+hex.workspace = true
+hmac = "0.13"
+reqwest.workspace = true
+rusqlite = { version = "0.41", features = ["bundled"] }
+serde.workspace = true
+serde_json.workspace = true
+sha2 = "0.11"
+tokio.workspace = true
+tower-http = { version = "0.7", features = ["cors"] }
