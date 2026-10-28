@@ -1,0 +1,23 @@
+# Zide gateway on Fly.io. Change `app` to a unique name before `fly launch`.
+app = "zide-gateway"
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  ZIDE_HTTP_ADDR = "0.0.0.0:8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "off"   # the payment watcher must keep running
+  min_machines_running = 1
+
+[[mounts]]
+  source = "data"
+  destination = "/data"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"
